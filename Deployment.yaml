@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skillupnodejs-jenkins-testing
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: skillupnodejs-jenkins-testing
+  template:
+    metadata:
+      labels:
+        app: skillupnodejs-jenkins-testing
+    spec:
+      containers:
+        - name: skillupnodejs-jenkins-testing
+          image: aananthgopalan956/skillupnodejs-jenkins-testing:1.0.0 
+          ports:
+            - containerPort: 9595
+          env:
+            - name: NODE_ENV
+              value: "production"

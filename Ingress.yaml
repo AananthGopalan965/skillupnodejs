@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: skillupnodejs-testing-ingress
+spec:
+  rules:
+    - host: skillupnodejs-testing.local  
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: skillupnodejs-testing-service
+                port:
+                  number: 9595
